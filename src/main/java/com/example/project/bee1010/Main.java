@@ -1,12 +1,36 @@
 package com.example.project.bee1010;
-import com.example.project.bee1010.SimpleCalculate;
+import java.util.Locale;
+import java.util.Scanner;
+
+// import com.example.project.bee1010.SimpleCalculate;
 
 class Main {
     public static void main(String[] args) {
-        PackageData p1 = new PackageData(1, 3, 2.10);
-        PackageData p2 = new PackageData(2, 3, 5.20);
+        Scanner sc = new Scanner(System.in);
+        int id;
+        int quantity;
+        float price;
+        System.out.println("Insira o código do produto");
+        id = sc.nextInt();
+        System.out.println("Insira a quantidade do produto");
+        quantity = sc.nextInt();
+        System.out.println("Insira o preço do produto");
+        price = sc.nextFloat();
+
+        PackageData product1 = new PackageData(id, quantity, price);
+
+        System.out.println("Insira o código do segundo produto");
+        id = sc.nextInt();
+        System.out.println("Insira a quantidade do segundo produto");
+        quantity = sc.nextInt();
+        System.out.println("Insira o preço do segundo produto");
+        price = sc.nextFloat();        
+        PackageData product2 = new PackageData(id, quantity, price);
+
+        sc.close();
+
         SimpleCalculate total = new SimpleCalculate();
-        System.out.println("VALOR A PAGAR: " + total.calculatePrices(p1, p2));
+        System.out.println("VALOR A PAGAR: R$ " + total.calculatePrices(product1, product2));
  
     }
 }
